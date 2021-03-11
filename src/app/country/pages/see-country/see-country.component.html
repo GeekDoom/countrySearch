@@ -1,0 +1,65 @@
+<div *ngIf="!country else countryDiv" class="alert alert-info animate__animated animate__fadeIn">
+  Wait please...
+</div>
+
+<ng-template #countryDiv>
+  <div class="row animate__animated animate__fadeInTopRight">
+    <div class="col-12 text-center">
+      <h1>Country: <small>{{country.name}}</small></h1>
+    </div>
+  </div>
+  <div class="row animate__animated animate__fadeInUpBig">
+    <div class="col-md-4 col text-center">
+      <h3>Flag</h3>
+      <img [src]="country.flag" class="img-thumbnail" />
+      <div class="col">
+        <h3>Translations: </h3>
+        <span class="badge bg-primary col-md-5 mx-1 col-8 text-break"> {{country.translations.es}}</span>
+        <span class="badge bg-primary col-md-5 mx-1 col-8 text-break"> {{country.translations.de}}</span>
+        <span class="badge bg-primary col-md-5 mx-1 col-8 text-break"> {{country.translations.fr}}</span>
+        <span class="badge bg-primary col-md-5 mx-1 col-8 text-break"> {{country.translations.ja}}</span>
+        <span class="badge bg-primary col-md-5 mx-1 col-8 text-break"> {{country.translations.it}}</span>
+        <span class="badge bg-primary col-md-5 mx-1 col-8 text-break"> {{country.translations.br}}</span>
+        <span class="badge bg-primary col-md-5 mx-1 col-8 text-break"> {{country.translations.pt}}</span>
+        <span class="badge bg-primary col-md-5 mx-1 col-8 text-break"> {{country.translations.hr}}</span>
+        <span class="badge bg-primary col-md-5 mx-1 col-8 text-break"> {{country.translations.nl}}</span>
+        <span class="badge bg-primary col-md-5 mx-1 col-8 text-break"> {{country.translations.fa}}</span>
+      </div>
+    </div>
+    <div class="col-md-8 col text-center">
+      <h3>Information: </h3>
+      <ul class="list-group text-center">
+        <li class="list-group-item text-center">
+          <strong>Code: </strong> {{country.alpha2Code}}
+        </li>
+        <li class="list-group-item text-break">
+
+          <strong>Capital: </strong> {{country.capital}}
+
+        </li>
+        <li class="list-group-item text-break">
+          <strong>Pupulation: </strong> {{country.population | number}}
+
+        </li>
+        <li class="list-group-item text-break">
+          <strong>Coordinates Lat / Lng: </strong> {{country.latlng}}
+        </li>
+        <li class="list-group-item" text-break>
+          <strong>Phone Code: </strong> +{{country.callingCodes}}
+        </li>
+        <li class="list-group-item text-break">
+          <strong>Time Zone: </strong> +{{country.timezones}}
+        </li>
+        <li class="list-group-item text-break">
+          <strong>Borders: </strong> {{country.borders}}
+        </li>
+        <li class="list-group-item text-break">
+          <strong>Region: </strong> {{country.subregion}}
+        </li>
+        <li class="list-group-item text-break">
+          <strong>Numeric Code: </strong> {{country.numericCode}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,28 @@
+<h2 class="animate__animated animate__fadeIn">By Capital</h2>
+<hr>
+<div class="row animate__animated animate__fadeIn">
+  <div class="col">
+    <app-country-input (onDebounce)="sugestion($event)" (onEnter)="search($event)" placeholder="Search a capital...">
+    </app-country-input>
+  </div>
+</div>
+<ul *ngIf="showSugestions" class="list-group animate__animated animate__fadeIn">
+  <li (click)="searchSugestion(searchWord)" class="list-group-item list-group-item-action">
+    <a class="nav-link">Search: {{searchWord}}</a>
+  </li>
+  <li *ngFor="let country of capitalSugestedSearch" class="list-group-item list-group-item-action">
+    <a class="nav-link" [routerLink]="['/country', country.alpha2Code]">{{country.capital}}</a>
+  </li>
+
+</ul>
+<hr>
+
+<div *ngIf="cathErr " class="alert alert-danger animate__animated animate__fadeIn">
+  Can't find any capital named {{searchWord}}
+</div>
+
+<div *ngIf="countries.length > 0  " class="row animate__animated animate__fadeInUpBig">
+  <div class="col">
+    <app-country-table [countries]="countries"></app-country-table>
+  </div>
+</div>
